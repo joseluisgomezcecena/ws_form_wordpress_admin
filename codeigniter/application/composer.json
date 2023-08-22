@@ -1,0 +1,5 @@
+{
+    "require": {
+        "ivantcholakov/codeigniter-phpmailer": "^1.4"
+    }
+}

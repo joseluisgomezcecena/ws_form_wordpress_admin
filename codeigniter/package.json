@@ -1,0 +1,26 @@
+{
+  "name": "sockets",
+  "version": "1.0.0",
+  "description": "Real time Andon system.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joseluisgomezcecena/nexus-andon.git"
+  },
+  "author": "joseluis gomez cecena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joseluisgomezcecena/nexus-andon/issues"
+  },
+  "homepage": "https://github.com/joseluisgomezcecena/nexus-andon#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "socket.io": "^2.1.0",
+    "winston": "^2.0.1"
+  }
+}
