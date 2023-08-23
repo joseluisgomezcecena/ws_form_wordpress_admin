@@ -8,17 +8,14 @@
 					<span class="icon-holder">
 						<i class="anticon anticon-appstore"></i>
 					</span>
-					<span class="title">Dashboard</span>
+					<span class="title">Mi Panel</span>
 					<span class="arrow">
                         <i class="arrow-icon"></i>
 					</span>
 				</a>
 				<ul class="dropdown-menu">
 					<li class="active">
-						<a href="<?php echo base_url() ?>dashboard">Main</a>
-					</li>
-					<li class="">
-						<a href="<?php echo base_url() ?>andon">Andon Alerts</a>
+						<a href="<?php echo base_url() ?>dashboard">Inicio</a>
 					</li>
 				</ul>
 			</li>
@@ -34,14 +31,30 @@
                                 <span class="icon-holder">
                                     <i class="anticon anticon-pie-chart"></i>
                                 </span>
-					<span class="title">Reports</span>
+					<span class="title">Analytics (Reportes)</span>
 					<span class="arrow">
                                     <i class="arrow-icon"></i>
                                 </span>
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="<?php echo base_url() ?>reports">Report</a>
+						<a href="<?php echo base_url() ?>reports">
+							<span class="icon-holder">
+                                    <i class="anticon anticon-file-excel"></i>
+                            </span>
+							<span>Generar Reportes</span>
+						</a>
+					</li>
+
+					<li>
+						<a href="<?php echo base_url() ?>reports/messages">
+							<span class="icon-holder">
+                                    <i class="anticon anticon-message"></i>
+                            </span>
+							<span>
+							Ver mis mensajes
+							</span>
+						</a>
 					</li>
 				</ul>
 			</li>
@@ -52,7 +65,7 @@
                                 <span class="icon-holder">
                                     <i class="anticon anticon-control"></i>
                                 </span>
-					<span class="title">Config</span>
+					<span class="title">Configuración</span>
 					<span class="arrow">
                                     <i class="arrow-icon"></i>
                                 </span>
@@ -60,47 +73,34 @@
 				<ul class="dropdown-menu">
 					<li class="nav-item dropdown">
 						<a href="javascript:void(0);">
-							<span>Alerts</span>
+							<span class="icon-holder">
+                                    <i class="anticon anticon-usergroup-add"></i>
+                            </span>
+							<span>Usuarios</span>
 							<span class="arrow">
                                             <i class="arrow-icon"></i>
                                         </span>
 						</a>
 						<ul class="dropdown-menu">
 							<li>
-								<a href="<?php echo base_url() ?>alerts">Alerts</a>
+								<a href="<?php echo base_url() ?>accounts/clients">Administrar Clientes</a>
 							</li>
 							<li>
-								<a href="<?php echo base_url() ?>subalerts">Sub Alerts</a>
+								<a href="<?php echo base_url() ?>accounts/admins">Administrar Staff</a>
 							</li>
 						</ul>
 					</li>
+
 					<li>
-						<a href="<?php echo base_url() ?>teams">Teams</a>
-					</li>
-					<li>
-						<a href="<?php echo base_url() ?>screens">Floor Displays</a>
-					</li>
-					<li class="nav-item dropdown">
-						<a href="javascript:void(0);">
-							<span>Locations</span>
-							<span class="arrow">
-                                            <i class="arrow-icon"></i>
-                                        </span>
+						<a href="<?php echo base_url() ?>teams">
+							<span class="icon-holder">
+                                    <i class="anticon anticon-message"></i>
+                            </span>
+							<span>
+								Correos electronicos
+							</span>
+
 						</a>
-						<ul class="dropdown-menu">
-							<li>
-								<a href="<?php echo base_url() ?>plants">Plants</a>
-							</li>
-							<li>
-								<a href="<?php echo base_url() ?>lines">Lines/Cells</a>
-							</li>
-							<li>
-								<a href="<?php echo base_url() ?>stations">Work Stations</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="<?php echo base_url() ?>accounts/register">Users</a>
 					</li>
 				</ul>
 			</li>

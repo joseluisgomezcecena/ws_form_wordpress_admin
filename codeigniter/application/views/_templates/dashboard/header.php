@@ -7,7 +7,7 @@
 	<title>Andon - Admin Dashboard</title>
 
 	<!-- Favicon -->
-	<link rel="shortcut icon" href="<?php echo base_url() ?>assets/images/logo/favicon.png">
+	<link rel="shortcut icon" href="<?php echo base_url() ?>assets/images/logo/adminlogo.png">
 
 	<!-- page css -->
 
@@ -118,14 +118,14 @@
 		<div class="header dark-header sb-globalnav">
 			<div class="logo logo-dark">
 				<a style="margin-top: 10px;" href="<?php echo base_url() ?>">
-					<img  src="<?php echo base_url() ?>assets/images/logo/quatro-01.png" alt="Logo" width="60" height="45"><span class="text-white font-weight-bolder">Quatro</span>
-					<img style="margin-left: 12px;" class="logo-fold text-center" src="<?php echo base_url() ?>assets/images/logo/quatro-01.png" alt="Logo" width="50" height="36">
+					<img  src="<?php echo base_url() ?>assets/images/logo/adminlogo.png" alt="Logo" width="60" height="45"><span class="text-white font-weight-bolder">Admin</span>
+					<img style="margin-left: 12px;" class="logo-fold text-center" src="<?php echo base_url() ?>assets/images/logo/adminlogo.png" alt="Logo" width="50" height="36">
 				</a>
 			</div>
 			<div class="logo logo-white">
 				<a style="margin-top: 10px;" href="<?php echo base_url() ?>">
-					<img src="<?php echo base_url() ?>assets/images/logo/quatro-01.png" alt="Logo" width="60" height="45"><span class="text-white font-weight-bolder">Quatro</span>
-					<img style="margin-left: 12px;" class="logo-fold text-center" src="<?php echo base_url() ?>assets/images/logo/quatro-01.png" alt="Logo" width="50" height="36">
+					<img src="<?php echo base_url() ?>assets/images/logo/adminlogo.png" alt="Logo" width="60" height="45"><span class="text-white font-weight-bolder">Admin</span>
+					<img style="margin-left: 12px;" class="logo-fold text-center" src="<?php echo base_url() ?>assets/images/logo/adminlogo.png" alt="Logo" width="50" height="36">
 				</a>
 			</div>
 			<div class="nav-wrap">
@@ -218,8 +218,14 @@
 					</li>
 					<li class="dropdown dropdown-animated scale-left">
 						<div class="pointer" data-toggle="dropdown">
-							<div class="avatar avatar-image  m-h-10 m-r-15">
+							<div class="avatar avatar-image bg-dark  m-h-10 m-r-15">
+								<?php
+									//get first letter of email
+									echo strtoupper(substr($this->session->userdata('user_email'),0,1));
+								?>
+								<!--
 								<img src="assets/images/avatars/thumb-3.jpg"  alt="">
+								-->
 							</div>
 						</div>
 						<div class="p-b-15 p-t-20 dropdown-menu pop-profile">
@@ -238,7 +244,19 @@
 											}
 											?>
 										</p>
-										<p class="m-b-0 opacity-07"><?php echo $user_id['company_name'] ?></p>
+
+										<p class="m-b-0 opacity-07">
+											<?php
+											if	($this->session->userdata('data')['staff'] == 1)
+											{
+												echo 'Staff';
+											}
+											else
+											{
+												echo 'Miembro.';
+											}
+											?>
+										</p>
 									</div>
 								</div>
 							</div>
@@ -246,11 +264,12 @@
 								<div class="d-flex align-items-center justify-content-between">
 									<div>
 										<i class="anticon opacity-04 font-size-16 anticon-user"></i>
-										<span class="m-l-10">Update My Profile</span>
+										<span class="m-l-10">Actualizar Mi Perfil</span>
 									</div>
 									<i class="anticon font-size-10 anticon-right"></i>
 								</div>
 							</a>
+							<!--
 							<a href="javascript:void(0);" class="dropdown-item d-block p-h-15 p-v-10">
 								<div class="d-flex align-items-center justify-content-between">
 									<div>
@@ -269,11 +288,12 @@
 									<i class="anticon font-size-10 anticon-right"></i>
 								</div>
 							</a>
+							-->
 							<a href="<?php echo base_url() ?>users/logout" class="dropdown-item d-block p-h-15 p-v-10">
 								<div class="d-flex align-items-center justify-content-between">
 									<div>
 										<i class="anticon opacity-04 font-size-16 anticon-logout"></i>
-										<span class="m-l-10">Logout</span>
+										<span class="m-l-10">Cerrar Sesión</span>
 									</div>
 									<i class="anticon font-size-10 anticon-right"></i>
 								</div>

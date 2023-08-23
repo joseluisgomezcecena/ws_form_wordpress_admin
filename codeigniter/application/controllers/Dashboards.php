@@ -3,14 +3,12 @@ class Dashboards extends CI_Controller {
 
 	public function index() 
 	{
+		/*** GETTING ALL MESSAGE DATA FROM CONTACT FORM. ***/
 		$data['title'] = 'Dashboard';
-		//$data['company_db'] = $this->session->userdata('data')['company_db'];
-
 
 		if ($this->session->userdata('data') ['staff'] == 1)
 		{
 			$data['staff'] = 1;
-			#echo "staff";
 
 			/* RELEVANT TABLES.
 			 * wpxw_wsf_submit_meta
@@ -22,6 +20,14 @@ class Dashboards extends CI_Controller {
 			$databases = array('adminsystemsmx', 'drcarlosochoa',);
 			$db_count = $data['database_count'] = count($databases);
 			$counter = 0;
+			$monthNames = array(
+				1 => 'Ene', 2 => 'Feb', 3 => 'Mar', 4 => 'Abr',
+				5 => 'May', 6 => 'Jun', 7 => 'Jul', 8 => 'Ago',
+				9 => 'Sept', 10 => 'Oct', 11 => 'Nov', 12 => 'Dic'
+			);
+			$allSalesData = array(); // Array to store sales data from all databases
+			$message_count = 0;
+
 
 			foreach ($databases as $db_name)
 			{
@@ -62,6 +68,10 @@ class Dashboards extends CI_Controller {
 					// Get result in array format.
 					$result = $query->result_array();
 
+					//get number of rows.
+					$rows = $query->num_rows();
+
+
 					// Create an associative array to organize data by parent_id.
 					$organized_data = array();
 					foreach ($result as $row) {
@@ -76,6 +86,7 @@ class Dashboards extends CI_Controller {
 								'date' => null,
 								'account' => $account,
 							);
+							$message_count++;
 						}
 
 						if ($row['type'] === 'email') {
@@ -97,6 +108,48 @@ class Dashboards extends CI_Controller {
 					$data['result' . $counter] = $organized_data;
 
 
+
+					/*CHART DATA*/
+					$currentYear = date('Y');
+
+					// Query to retrieve sales data for the current year
+					$query = $this->$db_name->select('MONTH(date) as month, SUM(count) as total_sales')
+						->from($table_prefix .'visitor_counter')
+						->where('YEAR(date)', $currentYear)
+						->group_by('MONTH(date)')
+						->get();
+
+					$salesData = array();
+					// Process the query results
+					if ($query->num_rows() > 0) {
+						foreach ($query->result() as $row) {
+							$salesData[(int)$row->month] = (float)$row->total_sales;
+						}
+					}
+
+					// Assign sales value of 0 for months without sales
+					for ($month = 1; $month <= 12; $month++) {
+						if (!isset($salesData[$month])) {
+							$salesData[$month] = 0;
+						}
+					}
+
+
+					// Add sales data from the current database to the allSalesData array
+					foreach ($salesData as $month => $sales)
+					{
+						if (!isset($allSalesData[$month])) {
+							$allSalesData[$month] = 0;
+						}
+						$allSalesData[$month] += $sales;
+					}
+
+
+
+
+
+
+
 					// Unload the database after operations.
 					$this->$db_name->close();
 
@@ -104,13 +157,38 @@ class Dashboards extends CI_Controller {
 				else {
 					echo "Database connection failed for: " . $db_name;
 				}
-			}
+
+
+
+
+			}//end foreach
+			ksort($allSalesData);
+
+			// Prepare the final data format for the chart
+			$finalData = array(
+				'labels' => array_values($monthNames),   // Month names
+				'sales' => array_values($allSalesData)   // Aggregated sales values
+			);
+
+			$chart_data = json_encode($finalData);
+			$data['chart_data'] = $chart_data;
+
+			$data['message_count'] = $message_count;
+
+			$data['all_visits'] = array_sum($allSalesData);
+
+
 
 		}
 		else
 		{
 			$data['staff'] = 0;
 		}
+
+
+
+
+
 
 
 
