@@ -152,6 +152,7 @@
 
 
 				<ul class="nav-right">
+					<!--
 					<li class="dropdown dropdown-animated scale-left">
 						<a href="javascript:void(0);" data-toggle="dropdown">
 							<i class="anticon anticon-bell notification-badge"></i>
@@ -216,6 +217,7 @@
 							</div>
 						</div>
 					</li>
+					-->
 					<li class="dropdown dropdown-animated scale-left">
 						<div class="pointer" data-toggle="dropdown">
 							<div class="avatar avatar-image bg-dark  m-h-10 m-r-15">
@@ -289,7 +291,7 @@
 								</div>
 							</a>
 							-->
-							<a href="<?php echo base_url() ?>users/logout" class="dropdown-item d-block p-h-15 p-v-10">
+							<a href="<?php echo base_url() ?>auth/logout" class="dropdown-item d-block p-h-15 p-v-10">
 								<div class="d-flex align-items-center justify-content-between">
 									<div>
 										<i class="anticon opacity-04 font-size-16 anticon-logout"></i>

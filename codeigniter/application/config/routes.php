@@ -55,41 +55,21 @@ $route['clientapp'] = 'clientApp/index';
 
 $route['auth/login'] = 'auth/login';
 $route['auth/logout'] = 'auth/logout';
-$route['auth/register'] = 'auth/register';
 
+$route['accounts/clients'] = 'accounts/clients';
+$route['accounts/clients/(:any)'] = 'accounts/updateclient/$1';
 
+$route['accounts/admins'] = 'accounts/admins';
+$route['accounts/admins/(:any)'] = 'accounts/updateadmin/$1';
 
-$route['andon/send'] = 'andon/send';
-$route['andon/receive'] = 'andon/receive';
+$route["accounts/profile"] = "accounts/profile";
 
 $route['dashboard'] = 'dashboards/index';
 
-//Locations....
-$route['plants'] = 'locations/plants';
-$route['plants/(:any)/(:any)'] = 'locations/plants/$1/$2';
-
-$route['lines'] = 'locations/lines';
-$route['lines/(:any)/(:any)'] = 'locations/lines/$1/$2';
-
-$route['stations'] = 'stations/index';
-$route['stations/(:any)/(:any)'] = 'stations/index/$1/$2';
-
-//Alerts....
-$route['alerts'] = 'alerts/index';
-$route['alerts/(:any)/(:any)'] = 'alerts/index/$1/$2';
-
-$route['subalerts'] = 'subalerts/index';
-$route['subalerts/(:any)/(:any)'] = 'subalerts/index/$1/$2';
-
-//Teams....
-$route['teams'] = 'teams/index';
-$route['teams/(:any)/(:any)'] = 'teams/index/$1/$2';
 
 
-$route['pages/getAlertDetails'] = 'pages/getAlertDetails';
-
-
-$route['(:any)'] = 'pages/view/$1';
-$route['default_controller'] = 'auth/login';
+//$route['(:any)'] = 'pages/view/$1';
+$route['(:any)'] = 'dashboards/index';
+$route['default_controller'] = 'dashboards/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -4,10 +4,10 @@
 <!-- Footer START -->
 <footer class="footer">
 	<div class="footer-content">
-		<span class="m-b-0">Copyright © <?php echo date("Y"); ?> Nexus Software Solutions. All rights reserved.</span>
+		<span class="m-b-0">Copyright © <?php echo date("Y"); ?> AdminSystemsMX. All rights reserved.</span>
 		<span>
-			<a href="" class="text-gray m-r-15">Term &amp; Conditions</a>
-			<a href="" class="text-gray">Privacy &amp; Policy</a>
+			<a href="" class="text-gray m-r-15">Terminos &amp; Condiciones</a>
+			<a href="" class="text-gray">Politica de privacidad</a>
 		</span>
 	</div>
 </footer>

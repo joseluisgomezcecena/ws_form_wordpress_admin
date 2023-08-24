@@ -91,6 +91,7 @@
 						</ul>
 					</li>
 
+					<!--
 					<li>
 						<a href="<?php echo base_url() ?>teams">
 							<span class="icon-holder">
@@ -102,6 +103,7 @@
 
 						</a>
 					</li>
+					-->
 				</ul>
 			</li>
 			<!--
