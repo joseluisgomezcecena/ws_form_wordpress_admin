@@ -10,8 +10,8 @@ class UserModel extends CI_Model{
 	public function getCurrentUser($id)
 	{
 		$query = $this->db->get_where('users', array('user_id' => $id));
-		$last_query = $this->db->last_query();
-		print_r($last_query);
+		//$last_query = $this->db->last_query();
+		//print_r($last_query);
 
 		return $query->row_array();
 	}

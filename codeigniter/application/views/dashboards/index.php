@@ -49,13 +49,16 @@
 			</div>
 
 			<div class="media align-items-center  m-v-5">
-				<div data-tippy-content="Una interacción entre 0.9 y 5 es optima." class="font-size-27">
+				<div data-tippy-content="Una interacción entre 0.9 y 5 es buena y mayor a 5 es optima." class="font-size-27">
 					<i class="text-success  anticon anticon-appstore"></i>
 				</div>
 				<div class="d-flex align-items-center m-l-10">
 					<h2 class="m-b-0 m-r-5">
 						<?php
-						$engagement_rate = $all_visits/$message_count;
+						if($message_count == 0){
+							$message_count = 1;
+						}
+						$engagement_rate = ($message_count/$all_visits)*100;
 						if ($engagement_rate < 0.9){
 							echo "0.9".rand(0,9);
 						}else{
@@ -63,7 +66,7 @@
 						}
 						?>
 					</h2>
-					<span class="text-gray">Interaccion <i data-tippy-content="Una interacción entre 0.9 y 5 es optima." class="fa fa-question-circle"></i> </span>
+					<span class="text-gray">Interaccion <i data-tippy-content="Una interacción entre 0.9 y 5 es buena y mayor a 5 es optima." class="fa fa-question-circle"></i> </span>
 				</div>
 			</div>
 		</div>
