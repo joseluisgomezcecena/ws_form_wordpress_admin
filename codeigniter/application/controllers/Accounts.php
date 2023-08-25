@@ -10,10 +10,10 @@ class Accounts extends CI_Controller
 		//validation styles
 
 
-		$this->form_validation->set_rules('user_email', 'Email', 'required');
+		$this->form_validation->set_rules('user_email', 'Email', 'required|callback_check_email_exists');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		//$this->form_validation->set_rules('password2', 'Confirmar Password', 'matches[password]');
-		$this->form_validation->set_rules('user_phone', 'Telefono', 'required');
+		$this->form_validation->set_rules('user_phone', 'Telefono', 'required|callback_check_phone_exists');
 
 		if ($this->form_validation->run() === FALSE)
 		{
@@ -37,6 +37,41 @@ class Accounts extends CI_Controller
 	}
 
 
+	public function updateclient($id)
+	{
+
+		$data['title']  = 'Actualizar Cliente';
+		$data['client'] = $this->UserModel->getSingleUserByCompany($id);
+		$user_id = $data['client']['user_id'];
+
+
+		//validation styles
+		$this->form_validation->set_rules('user_email', 'Email', 'required|callback_check_email_exists_update[' . $user_id . ']');
+		$this->form_validation->set_rules('user_phone', 'Telefono', 'required|callback_check_phone_exists_update[' . $user_id . ']');
+		$this->form_validation->set_rules('password', 'Contraseña', 'required');
+
+		if ($this->form_validation->run() === FALSE)
+		{
+			$this->load->view('_templates/dashboard/header', $data);
+			$this->load->view('_templates/dashboard/sidebar', $data);
+			$this->load->view('accounts/update_client', $data);
+			$this->load->view('_templates/general/footer');
+		}
+		else
+		{
+			$encrypted_pwd = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+
+			$this->UserModel->updateClient($encrypted_pwd, $user_id, $id);
+
+			$this->session->set_flashdata('message', 'El usuario ha sido actualizado.');
+
+			redirect(base_url() . 'accounts/clients');
+		}
+
+
+	}
+
+
 	public function admins()
 	{
 		$data['title']  = 'Registrar Staff o Administrador.';
@@ -45,9 +80,9 @@ class Accounts extends CI_Controller
 		//validation styles
 
 
-		$this->form_validation->set_rules('user_email', 'Email', 'required');
+		$this->form_validation->set_rules('user_email', 'Email', 'required|callback_check_email_exists');
 		$this->form_validation->set_rules('password', 'Password', 'required');
-		$this->form_validation->set_rules('user_phone', 'Telefono', 'required');
+		$this->form_validation->set_rules('user_phone', 'Telefono', 'required|callback_check_phone_exists');
 
 		if ($this->form_validation->run() === FALSE)
 		{
@@ -76,11 +111,11 @@ class Accounts extends CI_Controller
 	{
 		$data['title']  = 'Perfil de Usuario';
 		$data['user'] = $this->UserModel->getCurrentUser($this->session->userdata('data')['user_id']);
-
+		$user_id = $this->session->userdata('data')['user_id'];
 
 		//validation styles
-		$this->form_validation->set_rules('user_email', 'Email', 'required');
-		$this->form_validation->set_rules('user_phone', 'Telefono', 'required');
+		$this->form_validation->set_rules('user_email', 'Email', 'required|callback_check_email_exists_update[' . $user_id . ']');
+		$this->form_validation->set_rules('user_phone', 'Telefono', 'required|callback_check_phone_exists_update[' . $user_id . ']');
 		$this->form_validation->set_rules('password', 'Contraseña', 'required');
 
 		if ($this->form_validation->run() === FALSE)
@@ -101,6 +136,65 @@ class Accounts extends CI_Controller
 			redirect(base_url() . 'accounts/profile');
 		}
 
+	}
+
+
+
+	/*** CALLBACK FUNCTIONS ***/
+	public function check_email_exists($email)
+	{
+		$this->form_validation->set_message('check_email_exists', 'El email ya esta registrado.');
+
+		if($this->UserModel->check_email_exists($email))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public function check_email_exists_update($email, $user_id)
+	{
+		$this->form_validation->set_message('check_email_exists_update', 'El email ya esta registrado.');
+
+		if($this->UserModel->checkEmailExistsUpdate($email, $user_id))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public function check_phone_exists($phone)
+	{
+		$this->form_validation->set_message('check_phone_exists', 'El telefono ya esta registrado.');
+
+		if($this->UserModel->check_phone_exists($phone))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public function check_phone_exists_update($phone, $user_id)
+	{
+		$this->form_validation->set_message('check_phone_exists_update', 'El telefono ya esta registrado.');
+
+		if($this->UserModel->checkPhoneExistsUpdate($phone, $user_id))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 

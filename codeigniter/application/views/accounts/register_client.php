@@ -178,7 +178,7 @@
 								<tr>
 									<td><?php echo $client['user_email'] ?></td>
 									<td><?php echo $client['company_site'] ?></td>
-									<td><a class="btn btn-outline-dark" href="<?php echo base_url() ?>clients/edit/<?php echo $client['user_id'] ?>">Editar</a></td>
+									<td><a class="btn btn-outline-dark" href="<?php echo base_url() ?>accounts/clients/<?php echo $client['id'] ?>">Editar</a></td>
 								</tr>
 
 							<?php endforeach; ?>
