@@ -66,6 +66,9 @@ $route["accounts/profile"] = "accounts/profile";
 
 $route['dashboard'] = 'dashboards/index';
 
+$route['reports'] = 'reports/index';
+$route['reports/messages'] = 'reports/messages';
+$route['reports/messages/(:any)'] = 'reports/messages/$1';
 
 
 //$route['(:any)'] = 'pages/view/$1';
