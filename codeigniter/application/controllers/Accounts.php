@@ -101,8 +101,36 @@ class Accounts extends CI_Controller
 
 			redirect(base_url() . 'accounts/admins');
 		}
+	}
 
 
+
+	public function updateadmin($id)
+	{
+
+		$data['title'] = 'Actualizar Administrador o Staff';
+		$data['admin'] = $this->UserModel->getSingleUser($id);
+		$user_id = $data['admin']['user_id'];
+
+		//validation styles
+		$this->form_validation->set_rules('user_email', 'Email', 'required|callback_check_email_exists_update[' . $user_id . ']');
+		$this->form_validation->set_rules('user_phone', 'Telefono', 'required|callback_check_phone_exists_update[' . $user_id . ']');
+		$this->form_validation->set_rules('password', 'Contraseña', 'required');
+
+		if ($this->form_validation->run() === FALSE) {
+			$this->load->view('_templates/dashboard/header', $data);
+			$this->load->view('_templates/dashboard/sidebar', $data);
+			$this->load->view('accounts/update_admin', $data);
+			$this->load->view('_templates/general/footer');
+		} else {
+			$encrypted_pwd = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+
+			$this->UserModel->updateAdmin($user_id,$encrypted_pwd);
+
+			$this->session->set_flashdata('message', 'El usuario ha sido actualizado.');
+
+			redirect(base_url() . 'accounts/admins');
+		}
 	}
 
 

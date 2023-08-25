@@ -41,11 +41,27 @@ class UserModel extends CI_Model{
 
 	public function getSingleUser($id)
 	{
+		//adjust for admins that dont have a company.
 		$this->db->select('*');
 		$this->db->from('users');
-		$this->db->join('client_company', 'users.user_id = client_company.user_id');
-		$this->db->where('users.user_id', $id);
+		$this->db->where('user_id', $id);
 		$query = $this->db->get();
+		$user = $query->row_array();
+		//check if is staff/admin or not.
+		if ($user['staff'] == 1){
+			$this->db->select('*');
+			$this->db->from('users');
+			$this->db->where('users.user_id', $id);
+			$query = $this->db->get();
+		}else{
+			$this->db->select('*');
+			$this->db->from('users');
+			$this->db->join('client_company', 'users.user_id = client_company.user_id');
+			$this->db->where('users.user_id', $id);
+			$query = $this->db->get();
+		}
+
+
 		return $query->row_array();
 	}
 
@@ -131,6 +147,18 @@ class UserModel extends CI_Model{
 		return $this->db->insert('users', $data);
 	}
 
+
+	public function updateAdmin($id, $encrypted_pwd)
+	{
+		$data = array(
+			'user_email'=>$this->input->post('user_email'),
+			'user_phone'=>$this->input->post('user_phone'),
+			'password'=>$encrypted_pwd,
+		);
+
+		$this->db->where('user_id', $id);
+		$this->db->update('users', $data);
+	}
 
 	public function get_all()
 	{
