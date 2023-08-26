@@ -329,6 +329,8 @@ class Reports extends CI_Controller
 			$chart_data = json_encode($finalData);
 			$data['chart_data'] = $chart_data;
 
+			$data['visits'] = $finalData;
+
 			$data['message_count'] = $message_count;
 
 			$data['all_visits'] = array_sum($allSalesData);
