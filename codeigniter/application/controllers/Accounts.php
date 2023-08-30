@@ -1,6 +1,6 @@
 <?php
 
-class Accounts extends CI_Controller
+class Accounts extends MY_Controller
 {
 	public function clients()
 	{
