@@ -1,52 +1,21 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-<a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="assets/1200px-Socket-io.svg.png" alt="Logo" width="80" height="80">
-  </a>
+  
 
-  <h3 align="center">Socket.io and PHP App</h3>
+  <h3 align="center">Wordpress Admin Extension</h3>
 
   <p align="center">
-    A Barebones Socket.io and PHP Application
+    WordPress Admin Application
     <br />
     <a href="#"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="#">View Demo</a>
+    <a href="mailto:joseluisgomezcecegna@gmail.com">Report Bug</a>
     ·
-    <a href="mailto:jgomez@martechmedical.com">Report Bug</a>
-    ·
-    <a href="mailto:jgomez@martechmedical.com">Request Feature</a>
+    <a href="mailto:joseluisgomezcecegna@gmail.com">Request Feature</a>
   </p>
 </div>
 
@@ -85,9 +54,7 @@
 <!--
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 -->
-This a Socket.io and PHP Application that allows you to send and receive messages in real time.
-It is a barebones application that can be used as a starting point for a more complex application.
-
+This is an admin panel that connects to several wordpress databases, this project was built for adminsystems.mx
 <!--
 Here's why:
 * Your time should be focused on creating something amazing. A project that solves a problem and helps others
@@ -106,7 +73,6 @@ Use the `BLANK_README.md` to get started.
 
 Here is a list of software used to develop this project.
 
-* [![Socket.io][Socket.com]][Socket-url]
 * [![Node][Node.com]][Node-url]
 * [![Express][Express.com]][Express-url]
 * [![Codeigniter][Codeigniter.com]][Codeigniter-url]
@@ -172,10 +138,6 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 
 -->
-## Usage
--  Run the trim and run functions.
--  Run the macro that says split_to_workbook.vba
--  Click yes to split to workbooks when asked and dont put any prefix.
 <!-- ROADMAP
 ## Roadmap
 

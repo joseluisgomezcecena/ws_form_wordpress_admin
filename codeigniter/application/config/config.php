@@ -24,7 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-  $config['base_url'] = 'http://localhost/wp_admin_ext/codeigniter/';
+  //$config['base_url'] = 'http://localhost/wp_admin_ext/codeigniter/';
+  $config['base_url'] = 'https://adminsystems.mx/admin/';
 /*
 |--------------------------------------------------------------------------
 | Index File
