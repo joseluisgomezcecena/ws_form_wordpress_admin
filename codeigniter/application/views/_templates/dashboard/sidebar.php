@@ -45,21 +45,12 @@
 							<span>Generar Reportes</span>
 						</a>
 					</li>
-
-					<li>
-						<a href="<?php echo base_url() ?>reports/messages">
-							<span class="icon-holder">
-                                    <i class="anticon anticon-message"></i>
-                            </span>
-							<span>
-							Ver mis mensajes
-							</span>
-						</a>
-					</li>
 				</ul>
 			</li>
 
 
+
+			<?php if ($this->session->userdata('data') ['staff'] == 1): ?>
 			<li style="margin-left: 5px; margin-right: 5px;" class="nav-item dropdown card sb-card-shadow">
 				<a class="dropdown-toggle" href="javascript:void(0);">
                                 <span class="icon-holder">
@@ -106,6 +97,7 @@
 					-->
 				</ul>
 			</li>
+			<?php endif; ?>
 			<!--
 			<li class="nav-item dropdown">
 				<a class="dropdown-toggle" href="javascript:void(0);">
