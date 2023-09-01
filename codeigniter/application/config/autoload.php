@@ -134,10 +134,4 @@ $autoload['language'] = array();
 */
 $autoload['model'] = array(
 	'UserModel',
-	'AndonModel',
-	'LocationsModel',
-	'StationModel',
-	'AlertModel',
-	'TeamModel',
-
 );
