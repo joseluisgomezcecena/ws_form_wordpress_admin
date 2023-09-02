@@ -1,5 +1,5 @@
 <?php
-class Dashboards extends CI_Controller {
+class Dashboards extends MY_Controller {
 
 	public function index() 
 	{

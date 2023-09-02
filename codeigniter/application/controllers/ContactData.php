@@ -1,5 +1,5 @@
 <?php
-class ContactData extends CI_Controller
+class ContactData extends MY_Controller
 {
 	public function __construct(){}
 
