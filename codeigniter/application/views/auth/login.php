@@ -25,8 +25,8 @@
 
 						<div class="card card2">
 							<div class="card-body">
-								<h2 class="m-t-20">Login</h2>
-								<p class="m-b-30">Please enter your credentials.</p>
+								<h2 class="m-t-20">Inicio de Sesión</h2>
+								<p class="m-b-30">Por favor ingrese sus datos de acceso.</p>
 								<?php echo form_open(base_url() . 'auth/login') ?>
 								<div class="form-group">
 									<label class="font-weight-semibold" for="userName">E-mail:</label>
@@ -36,7 +36,7 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="font-weight-semibold" for="password">Password:</label>
+									<label class="font-weight-semibold" for="password">Contraseña:</label>
 									<a class="float-right font-size-13 text-muted" href="<?php echo base_url() ?>users/forgot">I forgot my password</a>
 									<div class="input-affix m-b-10">
 										<i class="prefix-icon anticon anticon-lock"></i>
@@ -45,18 +45,15 @@
 								</div>
 								<div class="form-group">
 									<div class="d-flex align-items-center justify-content-between">
-                                                <span class="font-size-13 text-muted">
-                                                    Dont have an account?
-                                                    <a class="small" href="<?php echo base_url() ?>auth/register"> Register here.</a>
-                                                </span>
-										<button type="submit" class="btn-submit d-none d-sm-block">&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;</button>
+
+										<button type="submit" class="btn-submit d-none d-sm-block">&nbsp;&nbsp;&nbsp;Iniciar Sesión&nbsp;&nbsp;&nbsp;</button>
 									</div>
 								</div>
 
 								<!--mobile-->
 								<div class="form-group">
 									<div class="d-flex align-items-center justify-content-between">
-										<button style="width: 100%" type="submit" class="btn-submit d-sm-none btn-block">&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;</button>
+										<button style="width: 100%" type="submit" class="btn-submit d-sm-none btn-block">&nbsp;&nbsp;&nbsp;Iniciar Sesión&nbsp;&nbsp;&nbsp;</button>
 									</div>
 								</div>
 								<?php echo form_close(); ?>

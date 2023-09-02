@@ -242,6 +242,19 @@
 	background-image: linear-gradient(130.93deg, rgb(105, 2, 154) 0%, rgb(135, 1, 199) 32.33%, rgb(107, 87, 255) 97.76%);
 	background-color: rgb(135, 1, 199);
 	*/
+	/*background-image: radial-gradient(89.53% 145.96% at .34% 100.79%,#ef4857 0,#de4970 17.58%,#b44db0 50.31%,#7f52ff 97.03%);*/
+	background-color: #757575;
+}
+
+.bodybackground2{
+	/*
+	background-image: linear-gradient(117.63deg, rgb(8, 89, 255) -0.78%, rgb(0, 154, 231) 55.03%, rgb(221, 255, 84) 111.19%);
+	background-color: rgb(22, 125, 255)
+	*/
+	/*
+	background-image: linear-gradient(130.93deg, rgb(105, 2, 154) 0%, rgb(135, 1, 199) 32.33%, rgb(107, 87, 255) 97.76%);
+	background-color: rgb(135, 1, 199);
+	*/
 	background-image: radial-gradient(89.53% 145.96% at .34% 100.79%,#ef4857 0,#de4970 17.58%,#b44db0 50.31%,#7f52ff 97.03%);
 	background-color: #7f52ff;
 }

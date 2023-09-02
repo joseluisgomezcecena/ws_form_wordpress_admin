@@ -4,11 +4,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Lean Tools</title>
+	<title>Admin Systems MX</title>
 
-	<!-- Favicon -->
+	<!-- Favicon
 	<link rel="shortcut icon" href="<?php echo base_url() ?>assets/images/logo/favicon.png">
-
+ 	-->
 	<!-- page css -->
 
 	<!-- Core css -->
