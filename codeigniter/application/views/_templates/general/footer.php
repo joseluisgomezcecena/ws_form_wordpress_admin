@@ -16,7 +16,7 @@
 </div>
 <!-- Page Container END -->
 
-<!-- Search Start-->
+<!-- Search Start
 <div class="modal modal-left fade search" id="search-drawer">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -119,7 +119,7 @@
 		</div>
 	</div>
 </div>
-<!-- Search End-->
+Search End-->
 
 <!-- Quick View START -->
 <div class="modal modal-right fade quick-view" id="quick-view">

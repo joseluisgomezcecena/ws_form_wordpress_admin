@@ -142,11 +142,13 @@
 							<i class="anticon"></i>
 						</a>
 					</li>
+					<!--
 					<li>
 						<a href="javascript:void(0);" data-toggle="modal" data-target="#search-drawer">
 							<i class="anticon anticon-search"></i>
 						</a>
 					</li>
+					-->
 				</ul>
 
 
